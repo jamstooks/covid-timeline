@@ -4,6 +4,9 @@ https://jamstooks.github.io/covid-timeline/
 
 An app displaying transmission and deaths over time, highlighting key events along the way.
 
+![Screenshot from 2020-04-16 07-17-30](https://user-images.githubusercontent.com/585436/79476973-7c0d9480-7fbe-11ea-879f-4b571a0cbc08.png)
+
+
 ## Tech
 
 [React](https://reactjs.org/) |
