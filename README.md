@@ -13,13 +13,9 @@ An app displaying transmission and deaths over time, highlighting key events alo
 
 ## Data Sources
 
-### U.S. States Data (The New York Times)
+U.S. States Data: [The New York Times](https://github.com/nytimes/covid-19-data)
 
-source: https://github.com/nytimes/covid-19-data
-
-### World Data (Johns Hopkins University)
-
-source: https://github.com/CSSEGISandData/COVID-19
+World Data: [Johns Hopkins University](https://github.com/CSSEGISandData/COVID-19)
 
 ## Local Development
 
