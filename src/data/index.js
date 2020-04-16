@@ -50,8 +50,6 @@ export const useData = () => {
             USTotals[format(date, "yyyy-MM-dd")].deaths;
       });
 
-      console.log(countries);
-
       setData([stateCounts, sortedDates, countries, events]);
     }
   }, [data]);

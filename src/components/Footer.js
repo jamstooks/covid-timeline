@@ -6,19 +6,17 @@ import IconButton from "@material-ui/core/IconButton";
 import GitHubIcon from "@material-ui/icons/GitHub";
 
 export default function Header() {
-  const preventDefault = event => event.preventDefault();
   return (
     <Grid
       container
       direction="row"
       justify="center"
       alignItems="center"
-      spacing={2}
     >
       <Grid item>
         <Typography variant="body2" component="h2">
           By{" "}
-          <Link href="https://github.com/jamstooks/" onClick={preventDefault}>
+          <Link href="https://github.com/jamstooks/">
             @jamstooks
           </Link>
         </Typography>

@@ -5,7 +5,6 @@ import { makeStyles } from "@material-ui/core/styles";
 const useStyles = makeStyles(theme => ({
   mapContainer: {
     width: "100%",
-    padding: theme.spacing(1),
     [theme.breakpoints.down("sm")]: {
       height: "33vh"
     },
@@ -15,7 +14,8 @@ const useStyles = makeStyles(theme => ({
   }
 }));
 
-mapboxgl.accessToken = process.env.MAPBOX_TOKEN;
+mapboxgl.accessToken = process.env.REACT_APP_MAPBOX_TOKEN;
+
 
 export default function Map({ data }) {
   const mapContainer = useRef(null);

@@ -1,4 +1,4 @@
-import React, { useEffect, useState } from "react";
+import React, { useEffect } from "react";
 import { format } from "date-fns";
 
 import { makeStyles } from "@material-ui/core/styles";

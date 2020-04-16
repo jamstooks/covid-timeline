@@ -16,7 +16,6 @@ export const COMPARE_COUNTRIES = [
 ];
 
 export const getCountries = () => {
-  console.log("getting countries");
   return { cases: processGlobalSet(cases), deaths: processGlobalSet(deaths) };
 };
 
