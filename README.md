@@ -6,7 +6,6 @@ An app displaying transmission and deaths over time, highlighting key events alo
 
 ![Screenshot from 2020-04-16 07-17-30](https://user-images.githubusercontent.com/585436/79476973-7c0d9480-7fbe-11ea-879f-4b571a0cbc08.png)
 
-
 ## Tech
 
 [React](https://reactjs.org/) |
@@ -36,3 +35,7 @@ yarn start
 - [ ] move from JSON to API
 - [ ] add additional quote events, perhaps from the WHO
 - [ ] add toggle switch to disable looping for playback
+
+## License
+
+[MIT](https://opensource.org/licenses/MIT)
