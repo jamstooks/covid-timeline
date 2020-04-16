@@ -1,0 +1,1 @@
+{"version":3,"sources":["styles.css"],"names":[],"mappings":"AAAA,UAEE,QAAS,CACT,SAAU,CACV,iCACF","file":"main.5e0ac16f.chunk.css","sourcesContent":["html,\nbody {\n  margin: 0;\n  padding: 0;\n  font-family: \"Cutive Mono\", monospace;\n}\n"]}
