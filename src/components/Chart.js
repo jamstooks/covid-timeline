@@ -11,7 +11,7 @@ import {
   CartesianGrid,
   Tooltip,
   Legend,
-  ResponsiveContainer
+  ResponsiveContainer,
 } from "recharts";
 import { startCase } from "lodash";
 
@@ -21,18 +21,17 @@ import { colors } from "../theme";
 const useStyles = makeStyles({
   toggle: {
     paddingRight: "5em",
-    textAlign: "right"
+    textAlign: "right",
   },
   chart: {
     height: "30vh",
-    width: "100vw"
-  }
+    width: "100vw",
+  },
 });
 
 export default function Chart({ data, date }) {
   const [dataSet, setDataSet] = useState("cases");
   const classes = useStyles();
-  // @todo - update x domain to use `date`
 
   const lines = COMPARE_COUNTRIES.map((c, i) => {
     return (
@@ -47,7 +46,7 @@ export default function Chart({ data, date }) {
   });
 
   const toggleDataSet = () => {
-    setDataSet(prev => (prev === "cases" ? "deaths" : "cases"));
+    setDataSet((prev) => (prev === "cases" ? "deaths" : "cases"));
   };
 
   return (
@@ -62,7 +61,7 @@ export default function Chart({ data, date }) {
               top: 5,
               right: 20,
               left: 75,
-              bottom: 0
+              bottom: 0,
             }}
           >
             <CartesianGrid strokeDasharray="3 3" />
@@ -71,28 +70,25 @@ export default function Chart({ data, date }) {
               type="number"
               domain={["dataMin", "dataMax"]}
               scale="linear"
-              tickFormatter={x => format(new Date(x), "MMM-d")}
+              tickFormatter={(x) => format(new Date(x), "MMM-d")}
               tickCount={20}
             />
             <YAxis
               type="number"
               orientation="right"
               stroke={colors.cases[7]}
-              tickFormatter={y =>
-                numeral(y)
-                  .format("0a")
-                  .toUpperCase()
-              }
+              tickFormatter={(y) => numeral(y).format("0a").toUpperCase()}
             />
             <Tooltip
               formatter={tooltipFormatter}
-              labelFormatter={d => format(new Date(d), "MMM-d")}
-              // animationDuration={0}
+              labelFormatter={(d) => (
+                <strong>{format(new Date(d), "MMM do")}</strong>
+              )}
               isAnimationActive={false}
             />
             <Legend
               iconType="plainline"
-              formatter={v => startCase(v)}
+              formatter={(v) => startCase(v)}
               margin={{ top: 10, left: 0, right: 0, bottom: 0 }}
             />
             {lines}
@@ -101,18 +97,15 @@ export default function Chart({ data, date }) {
       </div>
       <div className={classes.toggle}>
         Cases
-        <Switch onChange={toggleDataSet} color={colors.cases[7]} />
+        <Switch onChange={toggleDataSet} color="default" />
         Deaths
       </div>
     </>
   );
 }
 
-const numberFormatter = n =>
-  numeral(n)
-    .format("0a")
-    .toUpperCase();
+const numberFormatter = (n) => numeral(n).format("0a").toUpperCase();
 
-const tooltipFormatter = (value, name, props) => {
+const tooltipFormatter = (value, name) => {
   return [numberFormatter(value), startCase(name)];
 };

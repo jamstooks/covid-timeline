@@ -13,7 +13,7 @@ export default function Events({ date, events }) {
       enqueueSnackbar(
         JSON.stringify({ ...events[dateString], date: date.getTime() }), // preventDuplicate seems to do a string comparison
         {
-          preventDuplicate: true
+          preventDuplicate: true,
         }
       );
     }
@@ -27,7 +27,7 @@ export const EventProvider = ({ children }) => {
       maxSnack={3}
       anchorOrigin={{
         vertical: "top",
-        horizontal: "left"
+        horizontal: "left",
       }}
       content={(key, message) => <EventMessage id={key} message={message} />}
     >

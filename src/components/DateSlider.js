@@ -1,71 +1,76 @@
-import React, { useEffect } from "react";
+import React from "react";
 import { format } from "date-fns";
+import _ from "lodash";
 
 import { makeStyles } from "@material-ui/core/styles";
 
 import Grid from "@material-ui/core/Grid";
 import IconButton from "@material-ui/core/IconButton";
-import Slider from "@material-ui/core/Slider";
-import PlayArrowIcon from "@material-ui/icons/PlayArrow";
 import PauseIcon from "@material-ui/icons/Pause";
+import PlayArrowIcon from "@material-ui/icons/PlayArrow";
+import Slider from "@material-ui/core/Slider";
 
+import useKeyPress from "../hooks/useKeyPress";
 import useTimer from "../hooks/useTimer";
 
 const useStyles = makeStyles({
   root: {
     width: "100",
-    padding: "1em 6em 1em 1em"
-  }
+    padding: "1em 6em 1em 1em",
+  },
 });
 
 export default function DateSlider({ date, setDate, dates }) {
   const classes = useStyles();
   const [isActive, toggleTimer] = useTimer({
-    callback: () => incrementDate(),
-    active: false
+    callback: () => {
+      const { isLast } = getIndex();
+      if (isActive && isLast) toggleTimer();
+      // stop at the end
+      else incrementDate();
+    },
+    active: false,
+  });
+  useKeyPress({
+    32: () => handlePlayClick(), // space: pause/play
+    37: () => handleKeyIncrement(false), // back
+    39: () => handleKeyIncrement(), // forward
   });
 
-  const onKeyDown = event => {
-    switch (event.keyCode) {
-      case 32: // space
-        toggleTimer();
-        break;
-      case 37: // back button
-        incrementDate(-1);
-        break;
-      case 39: // forward button
-        incrementDate();
-        break;
-      default:
-        break;
-    }
-    event.stopPropagation();
+  const handleKeyIncrement = _.throttle((forward = true) => {
+    stopTimer();
+    incrementDate(forward ? 1 : -1);
+  }, 200);
+
+  const getIndex = () => {
+    const index = dates.map(Number).indexOf(+date);
+    const isLast = index === dates.length - 1;
+    return { index, isLast };
   };
 
-  // add key listeners for play/pause and forward/back
-  useEffect(() => {
-    let loaded = false;
-    if (!loaded) {
-      window.addEventListener("keydown", onKeyDown);
-      return () => window.removeEventListener("keydown", onKeyDown);
-    }
-    loaded = true;
-  }); // only run on mount
+  const handlePlayClick = () => {
+    toggleTimer();
+    if (!isActive) incrementDate();
+  };
 
-  const index = dates.map(Number).indexOf(+date);
-  const max = dates.length - 1;
+  const stopTimer = () => {
+    if (isActive) toggleTimer();
+  };
 
   const incrementDate = (increment = 1) => {
-    const index = dates.map(Number).indexOf(+date);
+    const { index } = getIndex();
     let newIndex = index + increment;
     if (newIndex > dates.length - 1) newIndex = 0;
     if (newIndex < 0) newIndex = dates.length - 1;
     setDate(dates[newIndex]);
   };
 
-  const getDisplayText = ts => format(dates[ts], "M/d");
+  const getDisplayText = (ts) => format(dates[ts], "M/d");
 
   const handleChange = (event, newValue) => setDate(dates[newValue]);
+
+  const { index } = getIndex();
+  const max = dates.length - 1;
 
   return (
     <div className={classes.root}>
@@ -78,7 +83,7 @@ export default function DateSlider({ date, setDate, dates }) {
         spacing={2}
       >
         <Grid item>
-          <IconButton aria-label="delete" onClick={toggleTimer}>
+          <IconButton aria-label="delete" onClick={handlePlayClick}>
             {isActive ? <PauseIcon /> : <PlayArrowIcon />}
           </IconButton>
         </Grid>
@@ -92,8 +97,8 @@ export default function DateSlider({ date, setDate, dates }) {
             max={max}
             valueLabelDisplay="on"
             aria-labelledby="range-slider"
-            valueLabelFormat={t => getDisplayText(t)}
-            getAriaValueText={t => getDisplayText(t)}
+            valueLabelFormat={(t) => getDisplayText(t)}
+            getAriaValueText={(t) => getDisplayText(t)}
           />
         </Grid>
       </Grid>

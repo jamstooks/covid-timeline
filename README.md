@@ -26,6 +26,7 @@ Get a [Mapbox Token](https://www.mapbox.com/) and set the environment variable: 
 Bootstrapped with [Create React App](https://github.com/facebook/create-react-app), so just:
 
 ```
+yarn install
 yarn start
 ```
 
@@ -35,6 +36,7 @@ yarn start
 - [ ] move from JSON to API
 - [ ] add additional quote events, perhaps from the WHO
 - [ ] add toggle switch to disable looping for playback
+- [ ] improve mobile support
 
 ## License
 

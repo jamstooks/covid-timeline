@@ -10,7 +10,6 @@ import { colors } from "../theme";
 const useStyles = makeStyles(theme => ({
   card: {
     maxWidth: 400,
-    minWidth: 344,
     padding: "1em"
   },
   quote: {

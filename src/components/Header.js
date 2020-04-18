@@ -9,12 +9,9 @@ const useStyles = makeStyles(theme => ({
     textAlign: "center",
     backgroundColor: colors.cases[10],
     color: "white",
-    padding: ".5em",
-    borderBottomWidth: 1,
-    borderBottomStyle: "solid",
-    borderBottomColor: colors.cases[13],
+    padding: ".7em 0 .6em 0",
     fontFamily: "'Roboto', sans-serif",
-    textTransform: "uppercase"
+    // textTransform: "uppercase"
   }
 }));
 
@@ -23,7 +20,7 @@ export default function Header() {
   return (
     <div className={classes.header}>
       <Typography variant="h4" component="h1">
-        U.S. Covid19 Timeline
+        U.S. Covid-19 Timeline
       </Typography>
     </div>
   );
