@@ -1,8 +1,8 @@
 import _ from "lodash";
 import { parse } from "date-fns";
 
-import cases from "./global_cases.json";
-import deaths from "./global_deaths.json";
+import cases from "./json/global_cases.json";
+import deaths from "./json/global_deaths.json";
 
 export const COMPARE_COUNTRIES = [
   "United States",

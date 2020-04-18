@@ -9,6 +9,11 @@
     "source": "Interview with Sean Hannity",
     "person": "Donald Trump"
   },
+  "2/10/2020": {
+    "quote": "Looks like by April, you know, in theory, when it gets a little warmer, it miraculously goes away.",
+    "source": "NH Rally",
+    "person": "Donald Trump"
+  },
   "2/24/2020": {
     "quote": "The Coronavirus is very much under control in the USA.",
     "source": "Interview with Sean Hannity",
@@ -24,6 +29,11 @@
     "source": "With GOP Senators",
     "person": "Donald Trump"
   },
+  "3/13/2020": {
+    "quote": "I don't take responsibility at all.",
+    "source": "Press Conference",
+    "person": "Donald Trump"
+  },
   "3/17/2020": {
     "quote": "This is a pandemic. ... I felt it was a pandemic long before it was called a pandemic.",
     "source": "Talking to reporters",
@@ -32,6 +42,16 @@
   "3/24/2020": {
     "quote": "Easter is a very special day for me ... wouldn't it be great to have all of the churches full?",
     "source": "Fox News Interview",
+    "person": "Donald Trump"
+  },
+  "4/9/2020": {
+    "quote": "Ratings for the White House Press Briefings are 'through the roof'",
+    "source": "Tweet",
+    "person": "Donald Trump"
+  },
+  "4/14/2020": {
+    "quote": "We did the right thing. Everything we did was right.",
+    "source": "Press Conference",
     "person": "Donald Trump"
   }
 }

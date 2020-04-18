@@ -4,10 +4,10 @@ import { colors } from "../theme";
 
 const colorStops = {
   cases: _.range(1, 14).map((v, i) => Math.pow(2, i)),
-  deaths: [..._.range(1, 14).map((v, i) => Math.pow(2, i)), Infinity]
+  deaths: [..._.range(1, 14).map((v, i) => Math.pow(2, i)), Infinity],
 };
 
-export const getColor = state => {
+export const getColor = (state) => {
   if (state.deaths > 0) {
     let index = _.sortedIndex(colorStops.deaths, state.deaths);
     let color =
@@ -33,5 +33,5 @@ export const getColor = state => {
     }
     return color;
   }
-  return null;
+  return "#bbbbbb";
 };

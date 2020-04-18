@@ -2,8 +2,8 @@ import { useState, useEffect } from "react";
 import { format, parse } from "date-fns";
 import _ from "lodash";
 
-import states from "./states.json";
-import events from "./events.json";
+import states from "./json/states.json";
+import events from "./json/events.json";
 
 import { getColor } from "./utils";
 import { getCountries } from "./global";
