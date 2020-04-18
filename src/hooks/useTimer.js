@@ -9,7 +9,7 @@ const useTimer = ({ callback, delay = 400, active = false }) => {
   }, [callback]);
 
   const toggle = () => {
-    setIsActive(!isActive);
+    setIsActive((prev) => !prev);
   };
 
   useEffect(() => {

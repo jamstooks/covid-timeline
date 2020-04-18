@@ -24,7 +24,7 @@ export default function DateSlider({ date, setDate, dates }) {
   const classes = useStyles();
   const [isActive, toggleTimer] = useTimer({
     callback: () => {
-      const { isLast } = getIndex();
+      const { isLast } = getIndex(date);
       if (isActive && isLast) toggleTimer();
       // stop at the end
       else incrementDate();
@@ -37,16 +37,16 @@ export default function DateSlider({ date, setDate, dates }) {
     39: () => handleKeyIncrement(), // forward
   });
 
+  const getIndex = (d) => {
+    const index = dates.map(Number).indexOf(+d);
+    const isLast = index === dates.length - 1;
+    return { index, isLast };
+  };
+
   const handleKeyIncrement = _.throttle((forward = true) => {
     stopTimer();
     incrementDate(forward ? 1 : -1);
   }, 200);
-
-  const getIndex = () => {
-    const index = dates.map(Number).indexOf(+date);
-    const isLast = index === dates.length - 1;
-    return { index, isLast };
-  };
 
   const handlePlayClick = () => {
     toggleTimer();
@@ -58,18 +58,20 @@ export default function DateSlider({ date, setDate, dates }) {
   };
 
   const incrementDate = (increment = 1) => {
-    const { index } = getIndex();
-    let newIndex = index + increment;
-    if (newIndex > dates.length - 1) newIndex = 0;
-    if (newIndex < 0) newIndex = dates.length - 1;
-    setDate(dates[newIndex]);
+    setDate((prev) => {
+      const { index } = getIndex(prev);
+      let newIndex = index + increment;
+      if (newIndex > dates.length - 1) newIndex = 0;
+      if (newIndex < 0) newIndex = dates.length - 1;
+      return dates[newIndex];
+    });
   };
 
   const getDisplayText = (ts) => format(dates[ts], "M/d");
 
   const handleChange = (event, newValue) => setDate(dates[newValue]);
 
-  const { index } = getIndex();
+  const { index } = getIndex(date);
   const max = dates.length - 1;
 
   return (

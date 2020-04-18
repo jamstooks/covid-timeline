@@ -11,11 +11,10 @@ export default function useKeyPress(keyFuncs) {
   };
 
   useEffect(() => {
-    let loaded = false;
-    if (!loaded) {
-      window.addEventListener("keydown", onKeyDown);
-      return () => window.removeEventListener("keydown", onKeyDown);
-    }
-    loaded = true;
+    window.removeEventListener("keydown", onKeyDown);
+    window.addEventListener("keydown", onKeyDown);
+    return () => {
+      window.removeEventListener("keydown", onKeyDown);
+    };
   }); // only run on mount
 }
