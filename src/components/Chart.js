@@ -1,6 +1,8 @@
 import React, { useState } from "react";
 import { format } from "date-fns";
 import numeral from "numeral";
+import useMobileDetect from "use-mobile-detect-hook";
+
 import Switch from "@material-ui/core/Switch";
 import { makeStyles } from "@material-ui/core/styles";
 import {
@@ -24,13 +26,14 @@ const useStyles = makeStyles({
     textAlign: "right",
   },
   chart: {
-    height: "30vh",
+    height: "calc(49vh - 124px)",
     width: "100vw",
   },
 });
 
 export default function Chart({ data, date }) {
   const [dataSet, setDataSet] = useState("cases");
+  const detectMobile = useMobileDetect();
   const classes = useStyles();
 
   const lines = COMPARE_COUNTRIES.map((c, i) => {
@@ -86,11 +89,13 @@ export default function Chart({ data, date }) {
               )}
               isAnimationActive={false}
             />
-            <Legend
-              iconType="plainline"
-              formatter={(v) => startCase(v)}
-              margin={{ top: 10, left: 0, right: 0, bottom: 0 }}
-            />
+            {!detectMobile.isMobile() && (
+              <Legend
+                iconType="plainline"
+                formatter={(v) => startCase(v)}
+                margin={{ top: 10, left: 0, right: 0, bottom: 0 }}
+              />
+            )}
             {lines}
           </LineChart>
         </ResponsiveContainer>
