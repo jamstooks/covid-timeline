@@ -1,10 +1,10 @@
 self.__precacheManifest = (self.__precacheManifest || []).concat([
   {
-    "revision": "72706049694f449986f48468b70d7e7f",
+    "revision": "4804206c68ab005070eacf8fca07b23e",
     "url": "/covid-timeline/index.html"
   },
   {
-    "revision": "207f44fd37380bc51108",
+    "revision": "185a55102709f94e15b6",
     "url": "/covid-timeline/static/css/main.5e0ac16f.chunk.css"
   },
   {
@@ -12,8 +12,8 @@ self.__precacheManifest = (self.__precacheManifest || []).concat([
     "url": "/covid-timeline/static/js/2.545b287e.chunk.js"
   },
   {
-    "revision": "207f44fd37380bc51108",
-    "url": "/covid-timeline/static/js/main.bd45ebcb.chunk.js"
+    "revision": "185a55102709f94e15b6",
+    "url": "/covid-timeline/static/js/main.c79555da.chunk.js"
   },
   {
     "revision": "c42be48175ced9627d44",
