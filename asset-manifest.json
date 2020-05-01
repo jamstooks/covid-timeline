@@ -1,14 +1,14 @@
 {
   "files": {
     "main.css": "/covid-timeline/static/css/main.5e0ac16f.chunk.css",
-    "main.js": "/covid-timeline/static/js/main.29f60d06.chunk.js",
-    "main.js.map": "/covid-timeline/static/js/main.29f60d06.chunk.js.map",
+    "main.js": "/covid-timeline/static/js/main.0bfcf4d3.chunk.js",
+    "main.js.map": "/covid-timeline/static/js/main.0bfcf4d3.chunk.js.map",
     "runtime~main.js": "/covid-timeline/static/js/runtime~main.51465983.js",
     "runtime~main.js.map": "/covid-timeline/static/js/runtime~main.51465983.js.map",
     "static/js/2.545b287e.chunk.js": "/covid-timeline/static/js/2.545b287e.chunk.js",
     "static/js/2.545b287e.chunk.js.map": "/covid-timeline/static/js/2.545b287e.chunk.js.map",
     "index.html": "/covid-timeline/index.html",
-    "precache-manifest.28a20d92e3a61fa5e7ae35523695af9a.js": "/covid-timeline/precache-manifest.28a20d92e3a61fa5e7ae35523695af9a.js",
+    "precache-manifest.26155a6888f65c13e72f7c062b791878.js": "/covid-timeline/precache-manifest.26155a6888f65c13e72f7c062b791878.js",
     "service-worker.js": "/covid-timeline/service-worker.js",
     "static/css/main.5e0ac16f.chunk.css.map": "/covid-timeline/static/css/main.5e0ac16f.chunk.css.map"
   }
